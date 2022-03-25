@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  rancher:
+    container_name: rancher-admin
+    image: rancher/rancher:v2.5.8
+    ports:
+      - "80:80"
+      - "443:443"
+    restart: always
+    privileged: true
+    volumes:
+      - /root/rancher/data_rancher:/var/lib/rancher
+      - /root/rancher/data_cni:/var/lib/cni
+      - /root/rancher/data_kubelet:/var/lib/kubelet
+      - /root/rancher/data_log:/var/log
+      - /root/rancher/data_audi:/var/log/auditlog
